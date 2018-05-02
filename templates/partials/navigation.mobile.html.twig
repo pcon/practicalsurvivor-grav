@@ -1,0 +1,34 @@
+{% macro loop(page, in_dropdown) %}
+	{% for p in page.children.visible %}
+		{% set expanded = (p.active or p.activeChild) ? 'true' : 'false' %}
+		{% set child_collapsed = (p.active or p.activeChild) ? '' : 'collapse' %}
+
+		{% if p.children.visible.count > 0 %}
+			<li class="nav-item">
+				<a class="nav-link" href="#mobile-navbar-{{ p.slug }}" data-toggle="collapse" role="button" aria-expanded="{{ expanded }}" aria-controls="mobile-navbar-{{ p.slug }}" >{{ p.menu }}</a>
+				<ul class="nav-child {{ child_collapsed }}" id="mobile-navbar-{{ p.slug }}">
+					{{ _self.loop(p, true) }}
+				</ul>
+			</li>
+		{% else %}
+			<li class="nav-item">
+				<a href="{{ p.url }}" class="nav-link">
+					{% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
+					{{ p.menu }}
+				</a>
+			</li>
+		{% endif %}
+	{% endfor %}
+{% endmacro %}
+
+<div class="collapse navbar-collapse" id="navbar-top">
+	{{ _self.loop(pages) }}
+	{% for mitem in site.menu %}
+		<li class="nav-item">
+			<a href="{{ mitem.url }}">
+				{% if mitem.icon %}<i class="fa fa-{{ mitem.icon }}"></i>{% endif %}
+				{{ mitem.text }}
+			</a>
+		</li>
+	{% endfor %}
+</div>

@@ -1,0 +1,87 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+
+    {% block stylesheets %}
+        {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
+        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
+	{% do assets.addCss('theme://css/bootstrap.min.css') %}
+        {% do assets.addCss('theme://css/custom.css', 98) %}
+    {% endblock %}
+    {{ assets.css() }}
+
+    {% block javascripts %}
+        {% do assets.addJs('jquery', 100) %}
+	{% do assets.addJs('theme://js/bootstrap.min.js') %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+<body id="top" class="{{ page.header.body_classes }}">
+	<div id="wrapper">
+		{% block header %}
+		<div id="mobile-header">
+			<nav class="navbar navbar-dark">
+				<a class="navbar-brand">Practical Survivor</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-top" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				{% include 'partials/navigation.mobile.html.twig' %}
+			</nav>
+		</div>
+		<div class="header" id="normal-header">
+			<div id="header-left"></div>
+			<div id="header-right"></div>
+			<div class="wrapper text-center" id="logo-wrapper">
+				<a class="logo" href="{{ base_url == '' ? '/' : base_url }}">
+				<img src="{{ url('theme://images/logo.png', true) }}" />
+				Practical Survivor
+				</a>
+			</div>
+		</div>
+		{% endblock %}
+
+		{% block body %}
+		<div class="container-fluid">
+			<div class="row">
+				<ul class="col-12 col-md-2 bd-sidebar" id="sidebar">
+					{% include 'partials/navigation.html.twig' %}
+				</ul>
+				<main role="main" class="col-md-9 ml-sm-auto col-lg-10" id="content">
+					{%if not page.home %}<h1>{{ header.title }}</h1>{% endif %}
+					{% block content %}{% endblock %}
+				</main>
+			</div>
+		</div>
+		{% endblock %}
+
+		{% block footer %}
+		<div class="footer-trees"></div>
+		<div class="footer text-center">
+			<div class="social-icons">
+				<i class="fab fa-twitter-square"></i>
+				<i class="fab fa-facebook-square"></i>
+				<i class="fab fa-instagram"></i>
+			</div>
+		</div>
+		{% endblock %}
+	</div>
+
+	{% block bottom %}
+	    {{ assets.js('bottom') }}
+	{% endblock %}
+</body>
+</html>

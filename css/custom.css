@@ -1,0 +1,265 @@
+@font-face {
+	font-family: Coda;
+	src: url("fonts/Coda-Regular.ttf");
+}
+
+/* Core Stuff */
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	background-color: #c8ab7b !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: #300 !important;
+}
+
+h1.cover {
+	font-size: 1.5rem;
+	font-style: italic;
+	text-align: center;
+	margin: 0px;
+}
+
+a {
+	color: #222417 !important;
+	text-decoration: none !important;
+	font-weight: bold;
+}
+
+a:hover {
+	color: #222417 !important;
+}
+
+img {
+	border: 2px solid #000 !important;
+	max-width: 100%;
+	height: auto;
+	margin: 4px 0px
+}
+
+.center {
+	display: block;
+	margin: 0 auto;
+}
+
+.header {
+	background-color: #222417;
+	color: #7f4a1e;
+	height: 50px;
+}
+
+.logo img {
+	margin: 0px;
+	border: none !important;
+	display: none;
+}
+
+#logo-wrapper {
+	height: 50px;
+	line-height: 50px;
+}
+
+.header .logo {
+	font-size: 2rem;
+	font-family: 'Coda';
+	color: #7f4a1e !important;
+	height: 50px;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 32px;
+}
+
+.footer .social-icons {
+	line-height: 32px;
+	color: #7f4a1e;
+	text-align: center;
+}
+
+.footer i {
+	margin: 0px 2px;
+	font-size: 1.2em;
+	font-style: normal;
+}
+
+.footer, .footer a {
+	background-color: #222417;
+	color: #888;
+}
+
+
+#body {
+	padding-bottom: 25px;
+}
+
+#wrapper {
+	min-height: 100%;
+	position: relative;
+}
+
+ul.bd-sidenav, li.bd-toc-item {
+	display: block;
+}
+
+.bd-toc-item > ul {
+	margin-left: 15px;
+}
+
+ul > .bd-toc-item > a, ul.bd-sidenav > li > a {
+	font-weight: normal;
+}
+
+ul.bd-sidenav > li  > ul.bd-sidenav > li > a {
+	font-size: .8rem;
+}
+
+#sidebar {
+	background-color: #a07d43;
+}
+
+nav.bd-links > .bd-toc-item > a {
+	text-transform: uppercase;
+}
+
+#content {
+	padding-bottom: 32px;
+}
+
+#normal-header {
+	display: none;
+}
+
+#mobile-header nav a.navbar-brand {
+	font-size: 1.3rem;
+	font-family: 'Coda';
+	color: #7f4a1e !important;
+}
+
+#mobile-header nav {
+	background-color: #222417;
+}
+
+.nav-child {
+	padding-left: 10px !important;
+}
+
+#mobile-header nav div.navbar-collapse li a {
+	color: #7f4a1e !important;
+}
+
+.dropdown-menu {
+	background-color: inherit !important;
+	border: none !important;
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1340px) {
+	.header .logo {
+		font-size: 3rem !important;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1100px) {
+	#header-left, #header-right {
+		display: none;
+	}
+}
+
+@media only screen and (min-width: 768px) {
+	#mobile-header {
+		display: none;
+	}
+
+	#normal-header {
+		display: block;
+	}
+
+	#body {
+		margin-top: 25px;
+		padding-bottom: 235px;
+	}
+
+	#content {
+		padding-top: 20px;
+		padding-bottom: 85px;
+	}
+
+	.wrapper {
+		margin: 0 3rem;
+	}
+
+	#header-left {
+		height: 115px;
+		width: 275px;
+		background: transparent url("images/mountains-left.png") bottom left no-repeat;
+		float: left;
+	}
+
+	#header-right {
+		height: 115px;
+		width: 352px;
+		background: transparent url("images/mountains-right.png") bottom right no-repeat;
+		float: right;
+	}
+
+	.footer-trees {
+		position: absolute;
+		bottom: 80px;
+		left: 0;
+		width: 105px;
+		height: 147px;
+		background: transparent url("images/trees.png") bottom left no-repeat;
+		margin-left: 15px;
+	}
+
+	.footer {
+		height: 85px;
+	}
+
+	.footer i {
+		margin: 0px 10px;
+		font-size: 3em;
+	}
+
+	.footer .social-icons {
+		line-height: 85px;
+	}
+
+	.bd-links {
+		display: block !important;
+		margin-top: 30px;
+	}
+
+	#logo-wrapper {
+		height: 115px;
+		line-height: 115px;
+	}
+
+	.header {
+		height: 115px;
+	}
+
+	.header .logo {
+		font-size: 5rem;
+		height: 115px;
+	}
+
+	.logo img {
+		display: inline;
+	}
+}
