@@ -85,6 +85,7 @@ img {
 }
 
 .footer .social-icons {
+	height: 32px;
 	line-height: 32px;
 	color: #7f4a1e;
 	text-align: center;
@@ -96,11 +97,11 @@ img {
 	font-style: normal;
 }
 
-.footer, .footer a {
+.footer, .footer a i {
+	font-weight: normal;
 	background-color: #222417;
-	color: #888;
+	color: #7f4a1e;
 }
-
 
 #body {
 	padding-bottom: 25px;
@@ -237,6 +238,7 @@ nav.bd-links > .bd-toc-item > a {
 	}
 
 	.footer .social-icons {
+		height: 85px;
 		line-height: 85px;
 	}
 
