@@ -91,6 +91,10 @@ img {
 	text-align: center;
 }
 
+.footer .social-icons a i {
+	line-height: 32px;
+}
+
 .footer i {
 	margin: 0px 2px;
 	font-size: 1.2em;
@@ -239,6 +243,10 @@ nav.bd-links > .bd-toc-item > a {
 
 	.footer .social-icons {
 		height: 85px;
+		line-height: 85px;
+	}
+
+	.footer .social-icons a i {
 		line-height: 85px;
 	}
 
